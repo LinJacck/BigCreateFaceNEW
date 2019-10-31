@@ -16,8 +16,9 @@ def set_face(dict, name, key, secret):  # 创建face_set
     for i in req_dict:#在json中遍历查找token
         if i == "faceset_token":#有就拿出来
             dict[name] = [req_dict[i]]
-    with open("D:/face/conf/fac_con", "w") as f:#没有就新建
+    with open("D:/BigCreateFace/conf/fac_con", "w") as f:#没有就新建
         json.dump(dict, f)
+        f.close()
     return req_dict
 
 
