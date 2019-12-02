@@ -8,7 +8,7 @@ def face_attitude(key,secret,face):
         'api_key': key,
         'api_secret': secret,
         'return_landmark':0,
-        'return_attributes':'gender,age,smiling,headpose,emotion,beauty,skinstatus'
+        'return_attributes':'gender,age,smiling,headpose,emotion,beauty,skinstatus,eyestatus,eyegaze'
     }
 
     r = requests.post(url, data=params, files=face)
