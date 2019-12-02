@@ -1,0 +1,7 @@
+pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
+sudo pip3 install Django -i https://pypi.tuna.tsinghua.edu.cn/simple
+sudo pip3 install Flask -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install requests-toolbelt -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install wxPython -i https://pypi.tuna.tsinghua.edu.cn/simple
+

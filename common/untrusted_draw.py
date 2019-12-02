@@ -2,11 +2,6 @@ import time
 import cv2
 # import matplotlib.pyplot as plt
 # import numpy as np
-#pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple
-# pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
-# sudo pip3 install Django -i https://pypi.tuna.tsinghua.edu.cn/simple
-# sudo pip3 install Flask -i https://pypi.tuna.tsinghua.edu.cn/simple
-# pip3 install requests-toolbelt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 def UntrustedDraw(face_information,face_file):
     img = cv2.imread('1.jpg')
