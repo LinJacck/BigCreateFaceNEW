@@ -12,7 +12,7 @@ def attitude_distinguish():
 
     # face_tokens = '1c8ca96278ac8a10eb97773d8145d6d3'
     data_file = os.path.abspath('..')#项目路径
-    faces = os.path.join(data_file,'..','faces')#faces路径，face要放在项目的同一级
+    file = os.path.join(data_file,'..','faces')#faces路径，face要放在项目的同一级
 
     # for i in range(32,37):
     #     face_name = str(i) + '.jpg'
@@ -24,7 +24,7 @@ def attitude_distinguish():
 
 
     face_name = '1' + '.jpg'
-    face_file = os.path.join(faces,face_name)
+    face_file = os.path.join(file,face_name)
     cap = cv2.VideoCapture(0)    # VideoCapture()中参数是1，表示打开外接usb摄像头
     ret, frame = cap.read()
     while ret:

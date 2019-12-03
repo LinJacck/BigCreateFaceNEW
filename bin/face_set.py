@@ -1,9 +1,13 @@
 import json
+import os
+
 import requests
 
 from common.json_write import json_write
 
 def set_face(dict, name, key, secret):  # 创建face_set
+    data_file = os.path.abspath('..')  # 项目路径
+    file = os.path.join(data_file, 'conf', 'fac_con')  # faces路径，face要放在项目的同一级
     url = 'https://api-cn.faceplusplus.com/facepp/v3/faceset/create'
     params = {
         'api_key': key,
@@ -16,7 +20,7 @@ def set_face(dict, name, key, secret):  # 创建face_set
     for i in req_dict:#在json中遍历查找token
         if i == "faceset_token":#有就拿出来
             dict[name] = [req_dict[i]]
-    with open("D:/BigCreateFace/conf/fac_con", "w") as f:#没有就新建
+    with open(file, "w") as f:#没有就新建
         json.dump(dict, f)
         f.close()
     return req_dict

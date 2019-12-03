@@ -89,7 +89,8 @@ class DisplayFrame(wx.Frame):
 
     def OnCloseStart(self, event):
         self.flag = 1
-
+        cd = cv2.imread('1.jpg')
+        cv2.imwrite('3.jpg',cd)
         self.Close(True)
         frame = AttitudeFrame(parent=None, id=-1)
         frame.Show()
