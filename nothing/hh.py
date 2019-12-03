@@ -21,8 +21,8 @@ class face_emotion(wx.Frame):
         self.panel = wx.Panel(self)
         self.Center()
 
-        # 封面图片Image
-        self.image_cover = wx.(COVER, wx.BITMAP_TYPE_ANY).Scale(350,300)
+        # 封面图片
+        self.image_cover = wx.Image(COVER, wx.BITMAP_TYPE_ANY).Scale(350,300)
         # 显示图片在panel上
         self.bmp = wx.StaticBitmap(self.panel, -1, wx.Bitmap(self.image_cover))
 

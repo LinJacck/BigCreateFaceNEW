@@ -1,9 +1,20 @@
+import os
 import time
 import cv2
 # import matplotlib.pyplot as plt
 # import numpy as np
 
+
+# class AttitudeFrame(AttitudeFrame):
+#     def __init__(self):
+#         self.attitude = 0
+
 def UntrustedDraw(face_information,face_file):
+    data_file_cd = os.path.abspath('..')  # 项目路径
+    face_file_cd = os.path.join(data_file_cd, 'start')
+    face_name_cd = '2' + '.jpg'
+
+    face_file_jpg = os.path.join(face_file_cd, face_name_cd)
     img = cv2.imread('1.jpg')
     time_name = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'.jpg'
     if face_information['faces']:
@@ -24,7 +35,7 @@ def UntrustedDraw(face_information,face_file):
             attitude = 'TalkToOthor'
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
         cv2.putText(img, attitude, (x-100, y - 5), font, 1, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
-        cv2.imwrite(time_name, img)
+        cv2.imwrite(face_file_jpg, img)
         print()
 
 
@@ -35,8 +46,9 @@ def UntrustedDraw(face_information,face_file):
         sz2 = sp[1]  # width(colums) of images
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
         cv2.putText(img, attitude, (int(sz1/10), int(sz2/10)), font, 3, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
-        cv2.imwrite(time_name, img)
-    cv2.namedWindow("original_img", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('original_img', 1000, 1000)
-    cv2.imshow('original_img', img)
-    cv2.waitKey(5)
+        cv2.imwrite(face_file_jpg, img)
+    # cv2.namedWindow("original_img", cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow('original_img', 1000, 1000)
+    # cv2.imshow('original_img', img)
+    # cv2.waitKey(5)
+    #opencv窗口显示
