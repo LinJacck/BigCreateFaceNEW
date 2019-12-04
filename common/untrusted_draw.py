@@ -34,19 +34,23 @@ def UntrustedDraw(face_information,face_file):
             if pitch_angle > 10:
                 attitude = '!!STUDENT_BOWING!!'
                 if global_name['attitude'] != 'LOOK_BOWING':
-                    GlobalWrite('LOOK_BOWING',time.time())
+                    GlobalWrite('attitude', 'LOOK_BOWING')
+                    GlobalWrite('time', time.time())
             elif pitch_angle < -10:
                 attitude = '!!STUDENT_LOOKING_UP!!'
                 if global_name['attitude'] != 'LOOK_UP':
-                    GlobalWrite('LOOK_UP',time.time())
+                    GlobalWrite('attitude', 'LOOK_UP')
+                    GlobalWrite('time', time.time())
             else:
                 attitude = 'GOOD_BOY'
                 if global_name['attitude'] != 'GOOD_BOY':
-                    GlobalWrite('GOOD_BOY',time.time())
+                    GlobalWrite('attitude', 'GOOD_BOY')
+                    GlobalWrite('time', time.time())
         elif yaw_angle < -10 or yaw_angle > 10:
             attitude = 'TalkToOthor'
             if global_name['attitude'] != 'LOOK_AROUND':
-                GlobalWrite('LOOK_AROUND',time.time())
+                GlobalWrite('attitude', 'LOOK_AROUND')
+                GlobalWrite('time', time.time())
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
         cv2.putText(img, attitude, (x-100, y - 5), font, 1, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
         if TimeSecond()%2 != 0:
@@ -64,7 +68,8 @@ def UntrustedDraw(face_information,face_file):
         if TimeSecond()%2 != 0:
             cv2.imwrite(face_file_jpg, img)
         if global_name['attitude'] != 'VERY_BAD':
-            GlobalWrite('VERY_BAD', time.time())
+            GlobalWrite('attitude', 'VERY_BAD')
+            GlobalWrite('time', time.time())
     # cv2.namedWindow("original_img", cv2.WINDOW_NORMAL)
     # cv2.resizeWindow('original_img', 1000, 1000)
     # cv2.imshow('original_img', img)
