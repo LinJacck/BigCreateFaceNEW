@@ -3,9 +3,10 @@ import os
 import time
 
 
-second = time.time()
+second = time.strftime('%S ',time.localtime(time.time()))
 print(second)
+
 while(1):
-    if (time.time()-second )> 5:
-        print(time.time())
-        break
+    second = time.strftime('%S ', time.localtime(time.time()))
+    if int(second) % 2 != 0:
+        print(second)

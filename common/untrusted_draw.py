@@ -10,6 +10,7 @@ import cv2
 #         self.attitude = 0
 from common.global_read import GlobalRead
 from common.global_write import GlobalWrite
+from common.time_second import TimeSecond
 
 
 def UntrustedDraw(face_information,face_file):
@@ -48,8 +49,9 @@ def UntrustedDraw(face_information,face_file):
                 GlobalWrite('LOOK_AROUND',time.time())
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
         cv2.putText(img, attitude, (x-100, y - 5), font, 1, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
-        cv2.imwrite(face_file_jpg, img)
-        print()
+        if TimeSecond()%2 != 0:
+            cv2.imwrite(face_file_jpg, img)
+            print()
 
 
     else:
@@ -59,7 +61,8 @@ def UntrustedDraw(face_information,face_file):
         sz2 = sp[1]  # width(colums) of images
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
         cv2.putText(img, attitude, (int(sz1/10), int(sz2/10)), font, 3, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
-        cv2.imwrite(face_file_jpg, img)
+        if TimeSecond()%2 != 0:
+            cv2.imwrite(face_file_jpg, img)
         if global_name['attitude'] != 'VERY_BAD':
             GlobalWrite('VERY_BAD', time.time())
     # cv2.namedWindow("original_img", cv2.WINDOW_NORMAL)

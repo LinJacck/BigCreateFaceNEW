@@ -8,7 +8,7 @@ from bin.face_draw import face_draw
 
 key = "OtLBlW7lShY1Wsgra5g6xNEHA400Fumv"
 secret = "L12X1KWMbF1F3t5XPO1WChhgSzQSiA8p"
-name = "mayun1"
+name = "tangzhuang"
 data_file = os.path.abspath('..')#项目路径
 faces = os.path.join(data_file,'..','faces')#faces路径，face要放在项目的同一级
 
@@ -21,5 +21,5 @@ def unity(filepath):
     face_information = face_search(key,secret,filepath, FaceToken)#返回的数据有置信度，人脸坐标位置等信息
     face_draw(face_information,filepath,FaceToken,FaceId,key,secret)#利用这些信息画出人脸矩形框并标注id
 
-file_path = os.path.join(faces,'06.jpeg')
+file_path = os.path.join(faces,'123.jpg')
 unity(file_path)
