@@ -51,7 +51,7 @@ class FaceSearch():
                         return self.Lastname
 
                     elif similar < 80:
-                        print('无法识别')
+                        print('不是他\她')
 
             return 'no'
         else:

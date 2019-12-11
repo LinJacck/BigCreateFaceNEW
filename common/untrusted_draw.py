@@ -32,22 +32,22 @@ def UntrustedDraw(face_information,face_file):
         yaw_angle = face_information['faces'][0]['attributes']['headpose']['yaw_angle']  # 获取侧头状态
         if yaw_angle > -10 and yaw_angle < 10:
             if pitch_angle > 10:
-                attitude = '!!STUDENT_BOWING!!'
+                attitude = '!! Student bowing !!'
                 if global_name['attitude'] != 'LOOK_BOWING':
                     GlobalWrite('attitude', 'LOOK_BOWING')
                     GlobalWrite('time', time.time())
             elif pitch_angle < -10:
-                attitude = '!!STUDENT_LOOKING_UP!!'
+                attitude = '!! Student looking up !!'
                 if global_name['attitude'] != 'LOOK_UP':
                     GlobalWrite('attitude', 'LOOK_UP')
                     GlobalWrite('time', time.time())
             else:
-                attitude = 'GOOD_BOY'
+                attitude = 'Good student'
                 if global_name['attitude'] != 'GOOD_BOY':
                     GlobalWrite('attitude', 'GOOD_BOY')
                     GlobalWrite('time', time.time())
         elif yaw_angle < -10 or yaw_angle > 10:
-            attitude = 'TalkToOthor'
+            attitude = '!! Talk to other !!'
             if global_name['attitude'] != 'LOOK_AROUND':
                 GlobalWrite('attitude', 'LOOK_AROUND')
                 GlobalWrite('time', time.time())
@@ -59,12 +59,12 @@ def UntrustedDraw(face_information,face_file):
 
 
     else:
-        attitude = 'IBetHeNotStudying'
+        attitude = '!! Very bad !!'
         sp = img.shape#获取像素长宽
         sz1 = sp[0]  # height(rows) of images
         sz2 = sp[1]  # width(colums) of images
         font = cv2.FONT_HERSHEY_SIMPLEX  # 字体设置
-        cv2.putText(img, attitude, (int(sz1/10), int(sz2/10)), font, 3, (0, 0, 255), 3)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
+        cv2.putText(img, attitude, (int(sz1/10), int(sz2/10)), font, 2, (0, 0, 255), 2)  # 照片/添加的文字/左上角坐标/字体/字体大小/颜色/字体粗细
         if TimeSecond()%2 != 0:
             cv2.imwrite(face_file_jpg, img)
         if global_name['attitude'] != 'VERY_BAD':
