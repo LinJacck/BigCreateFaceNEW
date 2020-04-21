@@ -25,7 +25,7 @@ def attitude_distinguish():
 
     face_name = '1' + '.jpg'
     face_file = os.path.join(file,face_name)
-    cap = cv2.VideoCapture(0)    # VideoCapture()中参数是1，表示打开外接usb摄像头
+    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)    # VideoCapture()中参数是1，表示打开外接usb摄像头
     ret, frame = cap.read()
     while ret:
        cv2.imwrite('1.jpg', frame)

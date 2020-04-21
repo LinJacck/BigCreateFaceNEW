@@ -1,9 +1,12 @@
+import time
+
 import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 
 def face_attitude(key,secret,face):
     url = 'https://api-cn.faceplusplus.com/facepp/v3/detect'
+    time.sleep(0.5)
     params = {
         'api_key': key,
         'api_secret': secret,

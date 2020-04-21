@@ -56,8 +56,6 @@ def UntrustedDraw(face_information,face_file):
         if TimeSecond()%2 != 0:
             cv2.imwrite(face_file_jpg, img)
             print()
-
-
     else:
         attitude = '!! Very bad !!'
         sp = img.shape#获取像素长宽
